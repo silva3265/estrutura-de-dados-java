@@ -9,6 +9,10 @@ public class ChavePix {
 		this.tipo = tipo;
 		this.chave = chave;
 	}
+	
+	public ChavePix() {
+		
+	}
 
 	public Integer getTipo() {
 		return tipo;

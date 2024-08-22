@@ -5,9 +5,14 @@ import java.util.Scanner;
 //Um Vetor primitivo ele é a base de qualquer estrutura de dados, Ex: o ArrayList é formado por um vetor primitivo
 public class VetorPrimitivo {
 	
+	static Integer tamanhoReal = 0; // variavel de controle
+	
+	static ChavePix[] chavesPix = new ChavePix[5];
+	
 	public static void main(String[] args) {
 		
 		menu();
+		
 	}
 	
 	public static void menu() {
@@ -23,7 +28,7 @@ public class VetorPrimitivo {
 			break;
 			
 		case 2:
-			//visualizarChavePix();
+			visualizarChavePix();
 			break;
 			
 		case 3:
@@ -41,6 +46,13 @@ public class VetorPrimitivo {
 	}
 	
 	
+	private static void visualizarChavePix() {
+		
+		//ChavePix chavePix = new ChavePix();
+		//chavesPix[tamanhoReal] = new ChavePix();
+		System.out.println("Chave: " + chavesPix[tamanhoReal].getChave() + "Tipo:" + chavesPix[tamanhoReal].getTipo());
+	}
+
 	public static void cadastrarChavePix() {
 		Scanner sc = new Scanner(System.in);
 		
@@ -51,11 +63,10 @@ public class VetorPrimitivo {
 		System.out.println("Qual é a chave que deseja cadastrar: ");
 		String chave = sc.next();
 		
-		Integer tamanhoReal = 0;
-		
-		ChavePix[] chavePix = new ChavePix[5];
-		chavePix[tamanhoReal] = new ChavePix(entrada, chave);
+		chavesPix[tamanhoReal] = new ChavePix(entrada, chave);
+		visualizarChavePix();
 		tamanhoReal++; // Vai incrementar (+1) - o valor dele é 1 agora
+		
 	}
 
 }
