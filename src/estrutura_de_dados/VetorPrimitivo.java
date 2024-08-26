@@ -7,7 +7,7 @@ public class VetorPrimitivo {
 	
 	static Integer tamanhoReal = 0; // variavel de controle
 	
-	static ChavePix[] chavesPix = new ChavePix[5];
+	static ChavePix[] chavesPix = new ChavePix[5]; // Instancia de um Vetor
 	
 	public static void main(String[] args) {
 		
@@ -32,7 +32,7 @@ public class VetorPrimitivo {
 			break;
 			
 		case 3:
-			//deletarChavePix();
+			deletarChavePix();
 			break;
 			
 		case 4:
@@ -46,11 +46,20 @@ public class VetorPrimitivo {
 	}
 	
 	
+	private static void deletarChavePix() {
+		
+		
+	}
+
 	private static void visualizarChavePix() {
 		
-		//ChavePix chavePix = new ChavePix();
-		//chavesPix[tamanhoReal] = new ChavePix();
-		System.out.println("Chave: " + chavesPix[tamanhoReal].getChave() + "Tipo:" + chavesPix[tamanhoReal].getTipo());
+		for (ChavePix chavePix : chavesPix) {
+			if (chavePix != null) {
+				System.out.println("Chave: " + chavePix.getChave() + "Tipo:" + chavePix.getTipo());
+			}
+			
+		}
+		System.out.println("Encerrando...");
 	}
 
 	public static void cadastrarChavePix() {
@@ -64,7 +73,7 @@ public class VetorPrimitivo {
 		String chave = sc.next();
 		
 		chavesPix[tamanhoReal] = new ChavePix(entrada, chave);
-		visualizarChavePix();
+		//visualizarChavePix();
 		tamanhoReal++; // Vai incrementar (+1) - o valor dele é 1 agora
 		
 	}
