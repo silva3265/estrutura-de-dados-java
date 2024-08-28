@@ -48,6 +48,27 @@ public class VetorPrimitivo {
 	
 	private static void deletarChavePix() {
 		
+		Scanner sc = new Scanner(System.in);
+		visualizarChavePix();
+		
+		System.out.println("Qual chave pix voce quer excluir: ");
+		String chave = sc.next();
+		
+//		for (ChavePix chavePix : chavesPix) {
+//			if (chavePix.getChave().equals(chave)) {
+//				chavesPix[]
+//			}
+//		}
+		
+		for (int i = 0; i < chavesPix.length; i++) { // cada posição do vetor é formado de uma instancia da classe 'chave pix'
+			ChavePix chavePix = chavesPix[i]; // vetor de chaves pix, armazenamos em uma variavel
+			if (chavePix.getChave().equals(chave)) { // verificamos se a chave inserida se encontra no vetor para encontrar a posição dela
+				// como esvaziar essa posição
+				chavesPix[i] = 
+			}
+		}
+		
+		//chavesPix[chave]
 		
 	}
 
