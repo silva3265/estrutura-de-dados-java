@@ -5,7 +5,7 @@ import java.util.Scanner;
 //Um Vetor primitivo ele é a base de qualquer estrutura de dados, Ex: o ArrayList é formado por um vetor primitivo
 public class VetorPrimitivo {
 	
-	static Integer tamanhoReal = 0; // variavel de controle
+	static Integer tamanhoReal = 0; // variavel de controle para armazenar a quantidade de posições que estao sendo ocupadas + 1 (proxima)
 	
 	static ChavePix[] chavesPix = new ChavePix[5]; // Instancia de um Vetor
 	
@@ -29,10 +29,12 @@ public class VetorPrimitivo {
 			
 		case 2:
 			visualizarChavePix();
+			menu();
 			break;
 			
 		case 3:
 			deletarChavePix();
+			menu();
 			break;
 			
 		case 4:
@@ -54,21 +56,38 @@ public class VetorPrimitivo {
 		System.out.println("Qual chave pix voce quer excluir: ");
 		String chave = sc.next();
 		
+		/* Usando o ForEach */
 //		for (ChavePix chavePix : chavesPix) {
 //			if (chavePix.getChave().equals(chave)) {
 //				chavesPix[]
 //			}
 //		}
 		
-		for (int i = 0; i < chavesPix.length; i++) { // cada posição do vetor é formado de uma instancia da classe 'chave pix'
+		/* Usando o While */
+//		for (int i = 0; i < chavesPix.length; i++) { // cada posição do vetor é formado de uma instancia da classe 'chave pix'
+//			ChavePix chavePix = chavesPix[i]; // vetor de chaves pix, armazenamos em uma variavel
+//			while (chavePix != null) {
+//				if (chavePix.getChave().equals(chave)) { // verificamos se a chave inserida se encontra no vetor para encontrar a posição dela
+//					// como esvaziar essa posição
+//					chavesPix[i] = null; // ela sendo encontrada, nós simplesmente atribuimos que aque chave pix inserida seja nula
+//					System.out.println("Chave Pix Deletada");
+//				}
+//				break;
+//			}
+//		}
+		
+		/* Usando o If */
+		for (int i = 0; i < tamanhoReal; i++) { // Substiuimos a chavePix.lenfh pelo o tamanho real (variavel global) para melhorar a performace
 			ChavePix chavePix = chavesPix[i]; // vetor de chaves pix, armazenamos em uma variavel
-			if (chavePix.getChave().equals(chave)) { // verificamos se a chave inserida se encontra no vetor para encontrar a posição dela
-				// como esvaziar essa posição
-				chavesPix[i] = 
+			if (chavePix != null) {
+				if (chavePix.getChave().equals(chave)) { // verificamos se a chave inserida se encontra no vetor para encontrar a posição dela
+					// como esvaziar essa posição
+					chavesPix[i] = null; // ela sendo encontrada, nós simplesmente atribuimos que aque chave pix inserida seja nula
+					System.out.println("Chave Pix Deletada");
+				}
 			}
 		}
 		
-		//chavesPix[chave]
 		
 	}
 
