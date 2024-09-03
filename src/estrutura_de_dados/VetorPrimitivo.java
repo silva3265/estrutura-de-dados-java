@@ -77,13 +77,15 @@ public class VetorPrimitivo {
 //		}
 		
 		/* Usando o If */
-		for (int i = 0; i < tamanhoReal; i++) { // Substiuimos a chavePix.lenfh pelo o tamanho real (variavel global) para melhorar a performace
+		for (int i = 0; i < tamanhoReal; i++) { // Substiuimos a chavePix.length pelo o tamanho real (variavel global) para melhorar a performace
 			ChavePix chavePix = chavesPix[i]; // vetor de chaves pix, armazenamos em uma variavel
 			if (chavePix != null) {
 				if (chavePix.getChave().equals(chave)) { // verificamos se a chave inserida se encontra no vetor para encontrar a posição dela
-					// como esvaziar essa posição
+					// como esvaziar essa posição0
 					chavesPix[i] = null; // ela sendo encontrada, nós simplesmente atribuimos que aque chave pix inserida seja nula
 					System.out.println("Chave Pix Deletada");
+					chavesPix[i] = chavesPix[tamanhoReal - 1]; // nao pode passar a chave 2, tem que passara  chave 1 
+					chavesPix[tamanhoReal - 1] = null;
 				}
 			}
 		}
