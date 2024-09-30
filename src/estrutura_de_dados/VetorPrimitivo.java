@@ -50,6 +50,8 @@ public class VetorPrimitivo {
 	
 	private static void deletarChavePix() {
 		
+		int posicao = 1;
+		
 		Scanner sc = new Scanner(System.in);
 		visualizarChavePix();
 		
@@ -81,11 +83,26 @@ public class VetorPrimitivo {
 			ChavePix chavePix = chavesPix[i]; // vetor de chaves pix, armazenamos em uma variavel
 			if (chavePix != null) {
 				if (chavePix.getChave().equals(chave)) { // verificamos se a chave inserida se encontra no vetor para encontrar a posição dela
-					// como esvaziar essa posição0
-					chavesPix[i] = null; // ela sendo encontrada, nós simplesmente atribuimos que aque chave pix inserida seja nula
-					System.out.println("Chave Pix Deletada");
-					chavesPix[i] = chavesPix[tamanhoReal - 1]; // nao pode passar a chave 2, tem que passara  chave 1 
+					for (int j = i; j < tamanhoReal - 1; j++) { // o segundo for serve para deslocamento e o primeiro serve apenas para percorrer e encontrar qual sera a chave deletada
+//						chavesPix[i] = null; // ela sendo encontrada, nós simplesmente atribuimos que aque chave pix inserida seja nula
+						chavesPix[j] = chavesPix[j + 1]; // substituindo posição deletada pela a sequencia (i + 1) - vai me entregar a proxima posição encontrada
+						
+						
+						//chavesPix[j + 1] = chavesPix[j - 1];
+						
+						//chavesPix[j + 1] = chavesPix[j + 2];
+//						chavesPix[j + 2] = null;
+						
+					}
 					chavesPix[tamanhoReal - 1] = null;
+					System.out.println("Chave Pix Deletada");
+					//chavesPix[i + posicao] = chavesPix[i + 1];
+//					chavesPix[i + 2] = null;
+//					chavesPix[i + 2] = chavesPix[i + 3];
+//					chavesPix[i + 3] = null;
+//					chavesPix[i + 3] = chavesPix[i + 4];
+//					chavesPix[i + 4] = null;
+					
 				}
 			}
 		}
@@ -114,9 +131,9 @@ public class VetorPrimitivo {
 		System.out.println("Qual é a chave que deseja cadastrar: ");
 		String chave = sc.next();
 		
-		chavesPix[tamanhoReal] = new ChavePix(entrada, chave);
+		chavesPix[tamanhoReal] = new ChavePix(entrada, chave); // primeiro cadastro na posição tamanho real que esta valendo 0
 		//visualizarChavePix();
-		tamanhoReal++; // Vai incrementar (+1) - o valor dele é 1 agora
+		tamanhoReal++; // (tamanhoReal = tamanhoReal + 1) Vai incrementar (+1) - o valor dele é 1 agora
 		
 	}
 
