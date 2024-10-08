@@ -78,7 +78,7 @@ public class VetorPrimitivo {
 //			}
 //		}
 		
-		/* Usando o If */
+		/* Deslocando a posicao subsequente para a posicao a esquerda, a partir da posicao encontrada (a posicao encontrada é a posicao que o ussuario quer deletar) */
 		for (int i = 0; i < tamanhoReal; i++) { // Substiuimos a chavePix.length pelo o tamanho real (variavel global) para melhorar a performace
 			ChavePix chavePix = chavesPix[i]; // vetor de chaves pix, armazenamos em uma variavel
 			if (chavePix != null) {
