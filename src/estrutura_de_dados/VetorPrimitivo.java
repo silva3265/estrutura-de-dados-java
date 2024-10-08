@@ -112,14 +112,13 @@ public class VetorPrimitivo {
 
 	private static void visualizarChavePix() {
 		
-		for (ChavePix chavePix : chavesPix) {
-			if (chavePix != null) {
-				System.out.println("Chave: " + chavePix.getChave() + "Tipo:" + chavePix.getTipo());
+		for (int i = 0; i < tamanhoReal; i++) {
+				System.out.println("Chave: " + chavesPix[i].getChave() + "Tipo:" + chavesPix[i].getTipo());
 			}
-			
+			System.out.println("Encerrando...");
 		}
-		System.out.println("Encerrando...");
-	}
+		
+		
 
 	public static void cadastrarChavePix() {
 		Scanner sc = new Scanner(System.in);
