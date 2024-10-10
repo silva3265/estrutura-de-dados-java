@@ -95,6 +95,7 @@ public class VetorPrimitivo {
 						
 					}
 					chavesPix[tamanhoReal - 1] = null;
+					tamanhoReal = tamanhoReal - 1; // Decrementando a posição 
 					System.out.println("Chave Pix Deletada");
 					//chavesPix[i + posicao] = chavesPix[i + 1];
 //					chavesPix[i + 2] = null;
