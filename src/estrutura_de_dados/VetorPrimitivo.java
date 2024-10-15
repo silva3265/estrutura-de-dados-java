@@ -38,7 +38,7 @@ public class VetorPrimitivo {
 			break;
 			
 		case 4:
-			//atualizarChavePix();
+			atualizarChavePix();
 			break;
 			
 		default:
@@ -48,6 +48,39 @@ public class VetorPrimitivo {
 	}
 	
 	
+	private static void atualizarChavePix() {
+		Scanner sc = new Scanner(System.in);
+		
+		visualizarChavePix();
+
+		System.out.println(" Digite a Chave Antiga para Atualizar:  "); // Vamos precisar da posição da chave antiga
+		String chaveAntiga = sc.next();
+		
+		
+		
+		for (int i = 0; i < tamanhoReal; i++) { 
+			ChavePix chavePix = chavesPix[i]; 
+			if (chavePix != null) {
+				if (chavePix.getChave().equals(chaveAntiga)) { 
+					System.out.println(" Digite a Chave Nova para Substituir:  ");
+					String chaveNova = sc.next();
+					if (chavePix.getChave().equals(chaveNova)) {
+						System.out.println(" Chave Digitada Ja existe");
+					}
+					for (int j = i; j < tamanhoReal - 1; j++) { 
+//						chavesPix[i] = null; 
+						chavesPix[j] = chavesPix[j + 1];
+						System.out.println(" Chave Atualizada com Sucesso!! ");
+					}
+					
+					chavesPix[tamanhoReal - 1] = null;
+					tamanhoReal = tamanhoReal - 1; // Decrementando a posição 
+					System.out.println("Chave Pix Nao encontrada");
+				}
+			}
+		}
+	}
+
 	private static void deletarChavePix() {
 		
 		int posicao = 1;
@@ -116,7 +149,6 @@ public class VetorPrimitivo {
 		for (int i = 0; i < tamanhoReal; i++) {
 				System.out.println("Chave: " + chavesPix[i].getChave() + "Tipo:" + chavesPix[i].getTipo());
 			}
-			System.out.println("Encerrando...");
 		}
 		
 		
