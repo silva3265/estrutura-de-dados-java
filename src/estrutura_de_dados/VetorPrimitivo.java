@@ -39,6 +39,7 @@ public class VetorPrimitivo {
 			
 		case 4:
 			atualizarChavePix();
+			menu();
 			break;
 			
 		default:
@@ -52,33 +53,33 @@ public class VetorPrimitivo {
 		Scanner sc = new Scanner(System.in);
 		
 		visualizarChavePix();
+		
+		System.out.println("Qual tipo de chave vc Gostaria de Atualizar: \n 1 - CPF \n 2 - Numero \n 3 - Email ");
+		
+		Integer entrada = sc.nextInt();
 
-		System.out.println(" Digite a Chave Antiga para Atualizar:  "); // Vamos precisar da posição da chave antiga
+		System.out.println(" Digite a Chave Antiga para Atualizar: "); // Vamos precisar da posição da chave antiga
 		String chaveAntiga = sc.next();
 		
-		
+		Boolean chaveEncontrada = false;
 		
 		for (int i = 0; i < tamanhoReal; i++) { 
 			ChavePix chavePix = chavesPix[i]; 
-			if (chavePix != null) {
+			if (chavePix != null) { // verificando se é diferente de nulo
 				if (chavePix.getChave().equals(chaveAntiga)) { 
-					System.out.println(" Digite a Chave Nova para Substituir:  ");
+					System.out.println(" Digite a Chave Nova Para Substituir:  ");
 					String chaveNova = sc.next();
-					if (chavePix.getChave().equals(chaveNova)) {
-						System.out.println(" Chave Digitada Ja existe");
-					}
-					for (int j = i; j < tamanhoReal - 1; j++) { 
-//						chavesPix[i] = null; 
-						chavesPix[j] = chavesPix[j + 1];
-						System.out.println(" Chave Atualizada com Sucesso!! ");
-					}
+			
+					chavesPix[i] = new ChavePix(entrada, chaveNova);
 					
-					chavesPix[tamanhoReal - 1] = null;
-					tamanhoReal = tamanhoReal - 1; // Decrementando a posição 
-					System.out.println("Chave Pix Nao encontrada");
+					System.out.println(" Chave Nova Substituida com Sucesso!! " + "Chave Antiga: " + chaveAntiga + "\n Chave Nova: " + chavesPix[i].getChave());
+					//System.out.println(" Chave Nova Substituida com Sucesso!! " + "Chave Antiga: " + chaveAntiga + "\n Chave Nova: " + chaveNova));
+					chaveEncontrada = true;
 				}
+			}		
+		} if (!chaveEncontrada) { //  se a chave nao for encontrada
+				System.out.println(" ** Chave Pix nao Encontrada ** ");
 			}
-		}
 	}
 
 	private static void deletarChavePix() {
