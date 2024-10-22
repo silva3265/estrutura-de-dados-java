@@ -148,7 +148,7 @@ public class VetorPrimitivo {
 	private static void visualizarChavePix() {
 		
 		for (int i = 0; i < tamanhoReal; i++) {
-				System.out.println("Chave: " + chavesPix[i].getChave() + "Tipo:" + chavesPix[i].getTipo());
+				System.out.println("\nChave: " + chavesPix[i].getChave() + "\nTipo:" + chavesPix[i].getTipo());
 			}
 		}
 		
@@ -167,6 +167,10 @@ public class VetorPrimitivo {
 		chavesPix[tamanhoReal] = new ChavePix(entrada, chave); // primeiro cadastro na posição tamanho real que esta valendo 0
 		//visualizarChavePix();
 		tamanhoReal++; // (tamanhoReal = tamanhoReal + 1) Vai incrementar (+1) - o valor dele é 1 agora
+		
+	}
+	
+	public static void ordenarVetor() { // colocar o vetor em alguma ordem
 		
 	}
 
