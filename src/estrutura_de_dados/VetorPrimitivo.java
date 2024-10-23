@@ -42,6 +42,11 @@ public class VetorPrimitivo {
 			menu();
 			break;
 			
+		case 5:
+			ordenarVetor();
+			menu();
+			break;
+			
 		default:
 			break;
 		}
@@ -171,6 +176,15 @@ public class VetorPrimitivo {
 	}
 	
 	public static void ordenarVetor() { // colocar o vetor em alguma ordem
+		
+		System.out.println("Lista Ordenada");
+		
+		for (int i = 0; i < chavesPix.length; i++) {
+			if (chavesPix[i].getTipo() > chavesPix[i + 1].getTipo()) {
+				chavesPix[i] = chavesPix[i + 1];
+				chavesPix[i + 1] = chavesPix[i];
+			}
+		}
 		
 	}
 
