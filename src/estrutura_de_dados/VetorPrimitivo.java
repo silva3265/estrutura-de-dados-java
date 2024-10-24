@@ -17,7 +17,7 @@ public class VetorPrimitivo {
 	
 	public static void menu() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("O que vc gostaria de Fazer: \n 1 - Cadastrar \n 2 - Visualizar \n 3 - Deletar \n 4 - Atualizar");
+		System.out.println("O que vc gostaria de Fazer: \n 1 - Cadastrar \n 2 - Visualizar \n 3 - Deletar \n 4 - Atualizar \n 5 - Ordenação");
 		Integer entrada = sc.nextInt();
 		
 		
@@ -179,11 +179,18 @@ public class VetorPrimitivo {
 		
 		System.out.println("Lista Ordenada");
 		
-		for (int i = 0; i < chavesPix.length; i++) {
-			if (chavesPix[i].getTipo() > chavesPix[i + 1].getTipo()) {
-				chavesPix[i] = chavesPix[i + 1];
-				chavesPix[i + 1] = chavesPix[i];
+		for (int i = 0; i < tamanhoReal - 1; i++) {
+			if (chavesPix[i].getTipo() != null) {
+				if (chavesPix[i].getTipo() > chavesPix[i + 1].getTipo()) { // se o tipo da primeira posição for maior que a segunda posicao
+					
+					// Variavel Auxiliar
+					ChavePix posicao = chavesPix[i];
+					chavesPix[i] = chavesPix[i + 1]; // primeira posicao esta recebendo a segunda
+					chavesPix[i + 1] = chavesPix[chavesPix - posicao];
+					
+				}
 			}
+				
 		}
 		
 	}
