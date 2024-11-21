@@ -181,18 +181,26 @@ public class VetorPrimitivo {
 		
 		for (int i = 0; i < tamanhoReal - 1; i++) {
 			if (chavesPix[i].getTipo() != null) {
-				if (chavesPix[i].getTipo() > chavesPix[i + 1].getTipo()) { // se o tipo da primeira posição for maior que a segunda posicao
-					
+	
 					// Variavel Auxiliar
-					ChavePix posicao = chavesPix[i];
-					chavesPix[i] = chavesPix[i + 1]; // primeira posicao esta recebendo a segunda
-					chavesPix[i + 1] = chavesPix[chavesPix - posicao];
+					ChavePix posicao = chavesPix[i]; // Armazenamos essa posição para nao perdela, se nao ela é substituida
 					
+					Integer menorIndice = i; // o menor indice na primeira vez que o for rodar vai ser o i (que no caso é a primira posicao)
+					
+					for (int j = i + 1; j < tamanhoReal - 1; j++) { // o j vai receber a proxima posicao que seria i + , o j agora tem o valor da posicao i 
+						if (chavesPix[menorIndice].getTipo() > chavesPix[j].getTipo()) { // verificando sa primeira posicao é maior que a segunda
+							menorIndice = j; // vai armazenar a posicao
+					}
+						
 				}
-			}
+				ChavePix aux = chavesPix[menorIndice]; // na variavel aux estamos armazenadmor a menor posicao da parte nao ordenada
 				
+				chavesPix[menorIndice] = chavesPix[i];
+			}
+					
+					
 		}
-		
+				
 	}
-
+		
 }
